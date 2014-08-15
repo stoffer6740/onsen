@@ -17,7 +17,7 @@
     </author>
 
     <!-- Sets what page the application starts at -->
-    <content src="index.html" />
+    <content src="play.html" />
 
     <!-- Build platforms
     <gap:platform name="ios" />

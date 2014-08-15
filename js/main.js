@@ -10,9 +10,7 @@ function login() {
 	})
 	.done(function(data) {
 		console.log("success");
-		saveToken(data);
-		window.location.replace("overview.html");
-		/*checkLogin(data);*/
+		checkLogin(data);
 	})
 	.fail(function() {
 		console.log("error");
@@ -112,14 +110,15 @@ function checkLogin(data) {
 	console.log("checkLogin invoked");
 	console.log("status" + data.status);
 	$.each(data, function(index, val) {console.log(val);});
-	switch(data.status) {
+	switch(true) {
 			default:
 				console.log("default");
 				break;
             case (data.status == 1):
         		saveToken(data);
         		console.log("case 1 success");
-                window.location.replace("overview.html");
+        		window.location.href = "activities.html";
+                /*$rootScope.ons.screen.presentPage('overview.html');*/
                 break;
             case (data.status == -1):
             	console.log("case -1 fail");

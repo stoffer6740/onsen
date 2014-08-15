@@ -1,7 +1,10 @@
 {
-	"login": "Login",
+	"logo": "<img src='images/icons/icon_29749.png' title='Unicorn' height='39px' />uniCRM<img class='localize' src='images/icons/flags/gb.png' onclick='chlangEN();' /><img class='localize' src='images/icons/flags/dk.png' onclick='chlangDK();' />",
+	"login": "<button class='slide-left button-- effeckt-button button no-select button--large'><span class='label ons-button-inner' ng-transclude='><span class='ng-scope'>Login</span></span><span class='spinner button__spinner button--large__spinner'></span></button>",
 	"overview": "Oversigt",
 	"footer": "Unicorn designed by <a href='http://www.thenounproject.com/caba'>caba kosmotesto</a> from the <a href='http://www.thenounproject.com'>Noun Project",
 	"activities": "My activities",
-	"test": "DETTE ER ENGELSK"
+	"test": "DETTE ER ENGELSK",
+	"getactivities": "Show activities",
+	"about": "This is a test. About.html"
 }

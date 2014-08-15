@@ -35,8 +35,9 @@ body { padding-bottom:70px; font-family: "Open Sans";}
 	padding:5px;
 }
 
-.logo > h1{
-	
+.logo{
+	color: white;
+	background-color: #212a31;
 	margin:0 auto 0 auto !important;
 }
 
@@ -73,8 +74,6 @@ input {
 	color:white; 
 	background-color: #3e90ca; 
 	border-style: none; 
-	padding: 16px;
-	width: 100%;
 	-webkit-border-radius: 5px 5px 5px 5px !important;
 	border-radius: 5px 5px 5px 5px !important;
 }

@@ -25,7 +25,7 @@
 <body>    
   
   <ons-sliding-menu
-    menu-page="menu.html" main-page="page1.html" side="left"
+    menu-page="menu.html" main-page="login.html" side="left"
     type="reveal" max-slide-distance="300px" swipable="true">
   </ons-sliding-menu>
 
@@ -35,16 +35,16 @@
       <ons-list>
         <ons-list-item
           modifier="chevron"
-          ng-click="ons.slidingMenu.setMainPage('page1.html', {closeMenu: true})">
+          ng-click="ons.slidingMenu.setMainPage('login.html', {closeMenu: true})">
 
-          <i class="fa fa-home fa-lg" style="color: #666"></i> &nbsp; Page 1
+          <i class="fa fa-home fa-lg" style="color: #666"></i> &nbsp; Login
         </ons-list-item>
 
         <ons-list-item 
           modifier="chevron"
-          ng-click="ons.slidingMenu.setMainPage('page2.html', {closeMenu: true})">
+          ng-click="ons.slidingMenu.setMainPage('overview.html', {closeMenu: true})">
 
-          <i class="fa fa-gear fa-lg" style="color: #666"></i> &nbsp; Page 2
+          <i class="fa fa-gear fa-lg" style="color: #666"></i> &nbsp; Overview
         </ons-list-item>
       </ons-list>
 
@@ -52,11 +52,13 @@
 
   </script>
 
-  <script type="text/ons-template" id="page1.html">
+  <script type="text/ons-template" id="login.html">
     <ons-page>
       <ons-toolbar>
-        <div class="center"><h1><img src="images/icons/icon_29749.png" title="Unicorn" height="39px" />uniCRM</h1>            <img class="localize" src="images/icons/flags/gb.png" onclick="chlangEN();" />
-            <img class="localize" src="images/icons/flags/dk.png" onclick="chlangDK();" /></div>
+        <div class="center"><h1><img src="images/icons/icon_29749.png" title="Unicorn" height="39px" />uniCRM</h1>
+          <img class="localize" src="images/icons/flags/gb.png" onclick="chlangEN();" />
+          <img class="localize" src="images/icons/flags/dk.png" onclick="chlangDK();" />
+        </div>
       </ons-toolbar>
 
       <ons-row style="margin-top: 100px;">
@@ -77,6 +79,7 @@
 
               <section style="padding: 0 8px 8px">
                 <ons-button modifier="large"><a type="button" class="input_btn" data-role="button" value="LOG IND" onclick="login();" data-localize="login">LOG IND</a></ons-button>
+                <ons-button modifier="large" ng-click="ons.slidingMenu.setMainPage('overview.html')" >test</ons-button>
               </section>
 
             </div>
@@ -89,10 +92,13 @@
     </ons-page>
   </script>
 
-  <script type="text/ons-template" id="page2.html">
+  <script type="text/ons-template" id="overview.html">
     <ons-page>
       <ons-toolbar>
-        <div class="center">Page 2</div>
+        <div class="center">
+        <ons-button modifier="large"><a type="button" class="input_btn" data-role="button" value="LOG IND" onclick="getActivities();" data-localize="getactivities"></a></ons-button>
+          <div id="result"></div>
+        </div>
       </ons-toolbar>
 
 
