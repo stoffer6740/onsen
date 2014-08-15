@@ -1,3 +1,5 @@
+
+/* Logs you in to the server */
 function login() {
 	var e = $('#email').val();
 	var p = $('#password').val();
@@ -22,6 +24,55 @@ function login() {
 	});
 }
 
+function checkLogin(data) {
+	console.log("checkLogin invoked");
+	console.log("status" + data.status);
+	$.each(data, function(index, val) {console.log(val);});
+	switch(true) {
+			default:
+				console.log("default");
+				break;
+            case (data.status == 1):
+        		saveToken(data);
+        		if ($('#rEmail').prop('checked', true)) {
+        			saveEmail();
+        		}
+        		console.log("case 1 success");
+        		window.location.href = "activities.html";
+                /*$rootScope.ons.screen.presentPage('overview.html');*/
+                break;
+            case (data.status == -1):
+            	console.log("case -1 fail");
+                $('.error').html("Forkert kodeord");
+                break;
+            case (data.status == -2):
+            	console.log("case -2 fail");
+                $('.error').html("Forkert brugernavn / bruger eksisterer ikke");
+                break;
+        }
+}
+
+/* Saves the token to localstorage in the browser (NEEDS ENCRYPTION?!) */
+function saveToken (data) {
+	console.log("savetoken");
+	window.localStorage.setItem("userId", data.userId);
+	window.localStorage.setItem("token", data.userId + ":" + data.token);
+}
+
+/* Gets the token from localstorage */
+function getToken () {
+	var token = window.localStorage.getItem("token");
+	var userId = window.localStorage.getItem("userId");
+}
+
+function saveEmail() {
+	var email = $('#email').val();
+	window.localStorage.setItem("email", email);
+	console.log("Email saved as: " + email);
+}
+
+
+/* Gets the activities for the person who is logged in from the server */
 function getActivities () {
 	console.log("getActivities");
 	var token = window.localStorage.getItem("token");
@@ -30,38 +81,17 @@ function getActivities () {
 		type: 'GET',
 		data: "token=" + token,
 		dataType: 'json',
+		async: false,
 
 	})
 	.done(function(data) {
-		/*$('#result').append("<table>" +
-								"<tr>" +
-									"<tr><th>Type</th></tr>" + 
-									"<tr><th>Dato</th></tr>" +
-									"<tr><th>Tidspunkt</th></tr>" +
-									"<tr><th>Virksomhed</th></tr>" +
-									"<tr><th>Note</th></tr>" +
-								"</tr>" +
-								"<tr>");
-		$.each(data.activities, function(index, val) {
-			 console.log(val);
-			 $('#result').append("<tr><td>" + val.type + "</td></tr>");
-			 $('#result').append("<tr><td>" + val.date + "</td></tr>");
-			 $('#result').append("<tr><td>" + val.time + "</td></tr>");
-			 $('#result').append("<tr><td>" + val.company + "</td></tr>");
-			 $('#result').append("<tr><td>" + val.text + "</td></tr>");
-			 $('#result').append("</tr>" +
-		 					"</table>");
-		});*/
-
 		$.each(data.activities, function(index, val) {
 			setTimeout(function() {
-				$('#result').append("<div class='col-xs-12 activities_small nopadding'>");
-					$('#result').append("<div class='col-xs-12'><b>"+ val.text + "</b></div>");
-					$('#result').append("<div class='col-xs-4'><b>Type:</b> </div><div class='col-xs-8'>" + val.type + "</div>");
-					$('#result').append("<div class='col-xs-4'><b>Dato:</b> </div><div class='col-xs-8'>" + val.date + "</div>");
-					$('#result').append("<div class='col-xs-4'><b>Tidspunkt:</b> </div><div class='col-xs-8'>" + val.time + "</div>");
-					$('#result').append("<div class='col-xs-4'><b>Virksomhed:</b> </div><div class='col-xs-8'>" + val.company + "</div>");
-				$('#result').append("</div>");
+				$('#result').append("<section style='padding: 8px 8px 8px'><ons-row align='left' class='row ons-row-inner'><ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;''><b>" + val.text + "</b></ons-col></ons-row>" +
+									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='type'>Type:</b></ons-col><ons-col class='col ons-col-inner'>" + val.type + "</ons-col></ons-row>" +
+									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='date'>Dato:</b></ons-col><ons-col class='col ons-col-inner'>" + val.date + "</ons-col></ons-row>" +
+									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='time'>Tidspunkt:</b></ons-col><ons-col class='col ons-col-inner'>" + val.time + "</ons-col></ons-row>" +
+									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='company'>Virksomhed:</b></ons-col><ons-col class='col ons-col-inner'>" + val.company + "</ons-col></ons-row></ons-row></section>");
 			}, 0);
 		});
 		
@@ -77,6 +107,7 @@ function getActivities () {
 	});
 }
 
+/* Gets the details of the activity you've clicked on */
 function getActivityDetails () {
 	var token = window.localStorage.getItem("token");
 	$.ajax({
@@ -107,43 +138,11 @@ function getActivityDetails () {
 	});
 }
 
-function checkLogin(data) {
-	console.log("checkLogin invoked");
-	console.log("status" + data.status);
-	$.each(data, function(index, val) {console.log(val);});
-	switch(true) {
-			default:
-				console.log("default");
-				break;
-            case (data.status == 1):
-        		saveToken(data);
-        		console.log("case 1 success");
-        		window.location.href = "activities.html";
-                /*$rootScope.ons.screen.presentPage('overview.html');*/
-                break;
-            case (data.status == -1):
-            	console.log("case -1 fail");
-                $('.error').html("Forkert kodeord");
-                break;
-            case (data.status == -2):
-            	console.log("case -2 fail");
-                $('.error').html("Forkert brugernavn / bruger eksisterer ikke");
-                break;
-        }
-}
-
-function saveToken (data) {
-	console.log("savetoken");
-	window.localStorage.setItem("userId", data.userId);
-	window.localStorage.setItem("token", data.userId + ":" + data.token);
-}
-
-function getToken () {
-	var token = window.localStorage.getItem("token");
-	var userId = window.localStorage.getItem("userId");
-}
-
 /* LANGUAGES */
+
+function chLang () {
+	// TODO Switch case
+}
 
 function chlangDK () {
 	var lang = "da";
@@ -175,4 +174,9 @@ function getLang () {
 		$("[data-localize]").localize("example", opts)
 	})
 	console.log("Language is now: " + window.localStorage.getItem("lang"));
+}
+
+function setUp () {
+	var email = window.localStorage.getItem("email");
+	$('#email').val(email);
 }

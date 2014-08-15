@@ -45,7 +45,7 @@
 
               <ons-list>
                 <ons-list-item 
-                  onclick="getActivities();"
+                  id="activities"
                   modifier="chevron"
                   ng-click="ons.slidingMenu.setMainPage('activity.html', {closeMenu: true})">
 
@@ -89,7 +89,9 @@
 
               <ons-row style="margin-top: 100px;">
                 <ons-col align="center">
-                  <div id="result"></div>
+                  <div>
+                      <ons-row id="result"></ons-row>
+                  </div>
                 </ons-col>
               </ons-row>
             </ons-page>
