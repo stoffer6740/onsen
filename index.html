@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>My App</title>  
+  
+  <link rel="stylesheet" href="lib/onsen/css/onsenui.css">  
+  <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">  
+  <link rel="stylesheet" href="styles/app.css"/>
+
+  <script src="lib/onsen/js/angular/angular.js"></script>    
+  <script src="lib/onsen/js/onsenui.js"></script>
+  <script src="lib/jquery/jquery-1.11.1.min.js"></script>
+  <script src="lib/jquery/jquery.localize.min.js"></script> 
+  <script src="lib/jquery/fastclick.js"></script> 
+
+  <script src="cordova.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/main.js"></script>
+  
+</head>
+
+<body>    
+  
+  <ons-sliding-menu
+    menu-page="menu.html" main-page="page1.html" side="left"
+    type="reveal" max-slide-distance="300px" swipable="true">
+  </ons-sliding-menu>
+
+  <script type="text/ons-template" id="menu.html">
+    <ons-page style="background-color: white">
+
+      <ons-list>
+        <ons-list-item
+          modifier="chevron"
+          ng-click="ons.slidingMenu.setMainPage('page1.html', {closeMenu: true})">
+
+          <i class="fa fa-home fa-lg" style="color: #666"></i> &nbsp; Page 1
+        </ons-list-item>
+
+        <ons-list-item 
+          modifier="chevron"
+          ng-click="ons.slidingMenu.setMainPage('page2.html', {closeMenu: true})">
+
+          <i class="fa fa-gear fa-lg" style="color: #666"></i> &nbsp; Page 2
+        </ons-list-item>
+      </ons-list>
+
+    </ons-page>
+
+  </script>
+
+  <script type="text/ons-template" id="page1.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="center"><h1><img src="images/icons/icon_29749.png" title="Unicorn" height="39px" />uniCRM</h1>            <img class="localize" src="images/icons/flags/gb.png" onclick="chlangEN();" />
+            <img class="localize" src="images/icons/flags/dk.png" onclick="chlangDK();" /></div>
+      </ons-toolbar>
+
+      <ons-row style="margin-top: 100px;">
+        <ons-col align="center">
+          <div>
+          </div>
+          <form id="login_form">
+            <div style="text-align: center">
+              <section style="padding: 8px">
+                <input type="text" class="text-input input_form" ng-model="text" placeholder="Brugernavn / Email" id="email" name="email" style="display: block; width: 100%">
+              </section>
+              <section style="padding: 8px">
+                <input type="password" class="text-input input_form" ng-model="password" placeholder="Kodeord" id="password" name="password" style="display: block; width: 100%">
+              </section>
+
+              <div class="error"></div>
+
+
+              <section style="padding: 0 8px 8px">
+                <ons-button modifier="large"><a type="button" class="input_btn" data-role="button" value="LOG IND" onclick="login();" data-localize="login">LOG IND</a></ons-button>
+              </section>
+
+            </div>
+
+            
+            <p data-localize="test"></p>
+          </form>
+        </ons-col>
+      </ons-row>
+    </ons-page>
+  </script>
+
+  <script type="text/ons-template" id="page2.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="center">Page 2</div>
+      </ons-toolbar>
+
+
+      <ons-row style="margin-top: 100px;">
+        <ons-col align="center">
+          <ons-button modifier="light" ng-click="ons.slidingMenu.toggleMenu()">
+            Toggle Menu
+          </ons-button>
+        </ons-col>
+      </ons-row>
+
+    </ons-page>
+  </script>
+ 
+</body>
+</html>
