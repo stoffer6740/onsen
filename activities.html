@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="uniCRM">
 <head>
   <meta charset="utf-8">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
-  <title>myApp</title>  
+  <title>uniCRM | Activities</title>  
   
   <link rel="stylesheet" href="lib/onsen/css/onsenui.css">  
   <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">  
@@ -20,11 +20,109 @@
   <script src="js/app.js"></script>
   <script src="js/main.js"></script>
   
-</head>
+    <script>
+      var module = angular.module('uniCRM', ['onsen']);
+      module.controller('AppController', function($scope) { });
+      module.controller('PageController', function($scope) {
+        ons.ready(function() {
+          // Init code here
+          console.log("ons.ready");
+        });
+      });
+    </script>
+  </head>
+<body ng-controller="AppController">
 
-<body> 
+  <ons-navigator var="navigator">
+    <ons-page ng-controller="PageController">
+      <ons-sliding-menu
+        menu-page="menu.html" main-page="activity.html" side="left"
+        type="reveal" max-slide-distance="200px" swipable="true">
+      </ons-sliding-menu>
 
-<ons-sliding-menu
+        <script type="text/ons-template" id="menu.html">
+            <ons-page style="background-color: white">
+
+              <ons-list>
+                <ons-list-item 
+                  onclick="getActivities();"
+                  modifier="chevron"
+                  ng-click="ons.slidingMenu.setMainPage('activity.html', {closeMenu: true})">
+
+                  <i class="fa fa-home fa-lg" style="color: #666"></i> &nbsp; View activities
+                </ons-list-item>
+
+                <ons-list-item 
+                  modifier="chevron"
+                  ng-click="ons.slidingMenu.setMainPage('about.html', {closeMenu: true})">
+
+                  <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; About us
+                </ons-list-item>
+
+                <ons-list-item 
+                  modifier="chevron"
+                  ng-click="ons.slidingMenu.setMainPage('about.html', {closeMenu: true})">
+
+                  <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; Another about us
+                </ons-list-item>
+
+                <ons-list-item 
+                  modifier="chevron"
+                  ng-click="ons.slidingMenu.setMainPage('about.html', {closeMenu: true})">
+
+                  <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; Yet another one
+                </ons-list-item>
+              </ons-list>
+
+            </ons-page>
+
+          </script>
+
+          <script type="text/ons-template" id="activity.html">
+            <ons-page>
+              <ons-toolbar>
+                <div class="center"><h1><img src="images/icons/icon_29749.png" title="Unicorn" height="39px" />uniCRM</h1>
+                  <a onclick="chlangEN();"><img class="localize" src="images/icons/flags/gb.png" /></a>
+                  <a onclick="chlangDK();"><img class="localize" src="images/icons/flags/dk.png" /></a>
+                </div>
+              </ons-toolbar>
+
+              <ons-row style="margin-top: 100px;">
+                <ons-col align="center">
+                  <div id="result"></div>
+                </ons-col>
+              </ons-row>
+            </ons-page>
+          </script>
+
+            <script type="text/ons-template" id="about.html">
+            <ons-page>
+              <ons-toolbar>
+                <div class="center"><h1><img src="images/icons/icon_29749.png" title="Unicorn" height="39px" />uniCRM</h1>
+                  <img class="localize" src="images/icons/flags/gb.png" onclick="chlangEN();" />
+                  <img class="localize" src="images/icons/flags/dk.png" onclick="chlangDK();" />
+                </div>
+              </ons-toolbar>
+
+              <ons-row style="margin-top: 100px;">
+                <ons-col align="center">
+                  <p data-localize="about">This is a test. About.html</p>
+                </ons-col>
+              </ons-row>
+            </ons-page>
+          </script>
+
+
+        <script type="text/javascript">
+        $( document ).ready(function() {
+          getLang();
+          getActivities();
+        });
+        </script>
+    </ons-page>
+  </ons-navigator>
+
+<!--<ons-sliding-menu
   menu-page="menu.html" main-page="activity.html" side="left"
   type="reveal" max-slide-distance="300px" swipable="true">
 </ons-sliding-menu>
@@ -46,7 +144,21 @@ hello
           modifier="chevron"
           ng-click="ons.slidingMenu.setMainPage('about.html', {closeMenu: true})">
 
-          <i class="fa fa-gear fa-lg" style="color: #666"></i> &nbsp; About us
+          <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; About us
+        </ons-list-item>
+
+        <ons-list-item 
+          modifier="chevron"
+          ng-click="ons.slidingMenu.setMainPage('about.html', {closeMenu: true})">
+
+          <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; Another about us
+        </ons-list-item>
+
+        <ons-list-item 
+          modifier="chevron"
+          ng-click="ons.slidingMenu.setMainPage('about.html', {closeMenu: true})">
+
+          <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; Yet another one
         </ons-list-item>
       </ons-list>
 
@@ -95,6 +207,6 @@ $( document ).ready(function() {
   getActivities();
 });
 </script>
-
+-->
 </body>
 </html>

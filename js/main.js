@@ -23,6 +23,7 @@ function login() {
 }
 
 function getActivities () {
+	console.log("getActivities");
 	var token = window.localStorage.getItem("token");
 	$.ajax({
 		url: 'http://dev.unicrm.dk/index.php?option=com_webitall_crm&task=api.getActivities&tmpl=api',
