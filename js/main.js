@@ -107,6 +107,41 @@ function getActivities () {
 	});
 }
 
+function getContacts () {
+	console.log("getActivities");
+	var token = window.localStorage.getItem("token");
+	$.ajax({
+		url: 'http://dev.unicrm.dk/index.php?option=com_webitall_crm&task=api.getContacts&tmpl=api',
+		type: 'GET',
+		data: "token=" + token,
+		dataType: 'json',
+		async: false,
+
+	})
+	.done(function(data) {
+		$.each(data.activities, function(index, val) {
+			setTimeout(function() {
+				$('#result').append("<section style='padding: 8px 8px 8px'><ons-row align='left' class='row ons-row-inner'><ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;''><b>" + val.text + "</b></ons-col></ons-row>" +
+									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='type'>Type:</b></ons-col><ons-col class='col ons-col-inner'>" + val.type + "</ons-col></ons-row>" +
+									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='date'>Dato:</b></ons-col><ons-col class='col ons-col-inner'>" + val.date + "</ons-col></ons-row>" +
+									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='time'>Tidspunkt:</b></ons-col><ons-col class='col ons-col-inner'>" + val.time + "</ons-col></ons-row>" +
+									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='company'>Virksomhed:</b></ons-col><ons-col class='col ons-col-inner'>" + val.company + "</ons-col></ons-row></ons-row></section>");
+			}, 0);
+		});
+		
+		console.log(data.status + " " + data.activities);
+	})
+	.fail(function() {
+		console.log("error");
+		$('.error').css("color", "red");
+		$('.error').html("An error occurred");
+	})
+	.always(function() {
+		console.log("done");
+	});
+}
+
+
 /* Gets the details of the activity you've clicked on */
 function getActivityDetails () {
 	var token = window.localStorage.getItem("token");

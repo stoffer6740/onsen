@@ -44,7 +44,6 @@
 
               <ons-list>
                 <ons-list-item 
-                  id="activities"
                   modifier="chevron"
                   ng-click="ons.slidingMenu.setMainPage('activity.html', {closeMenu: true})"
                   onclick="getActivities();">
@@ -61,9 +60,9 @@
 
                 <ons-list-item 
                   modifier="chevron"
-                  ng-click="ons.slidingMenu.setMainPage('test.html', {closeMenu: true})">
+                  ng-click="ons.slidingMenu.setMainPage('contacts.html', {closeMenu: true})">
 
-                  <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem3">Test</p>
+                  <i class="fa fa-users fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem3">Show contacts</p>
                 </ons-list-item>
 
                 <ons-list-item 
@@ -75,9 +74,16 @@
 
                 <ons-list-item 
                   modifier="chevron"
+                  ng-click="ons.slidingMenu.setMainPage('test.html', {closeMenu: true})">
+
+                  <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem6">Test</p>
+                </ons-list-item>
+
+                <ons-list-item 
+                  modifier="chevron"
                   ng-click="ons.slidingMenu.setMainPage('language.html', {closeMenu: true})">
 
-                  <i class="fa fa-language fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem5">Language</p>
+                  <i class="fa fa-language fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuLang">Language</p>
                 </ons-list-item>
               </ons-list>
 
@@ -113,6 +119,27 @@
 
               <ons-row style="margin-top: 50px;">
                 <ons-col align="center">
+
+                </ons-col>
+              </ons-row>
+            </ons-page>
+          </script>
+
+          <!-- Shows the contacts page -->
+          <script type="text/ons-template" id="contacts.html">
+            <ons-page>
+              <ons-toolbar>
+                <div class="center"><h1><img src="images/icons/icon_29749.png" title="Unicorn" height="39px" />uniCRM</h1>
+                </div>
+              </ons-toolbar>
+
+              <ons-row style="margin-top: 50px;">
+                <ons-col align="center">
+
+                  <select id="contacts" name="contacts">
+                    <option value="000" data-localize="ddl"></option>
+                  </select>
+                  <ons-row id="contacts"></ons-row>
 
                 </ons-col>
               </ons-row>
@@ -163,6 +190,7 @@
                   <p data-localize="language">Choose language here</p>
                   <a onclick="chlangEN();"><img src="images/icons/flags/gb.png" /></a>
                   <a onclick="chlangDK();"><img src="images/icons/flags/dk.png" /></a>
+                  <p data-localize="aLang"></p>
                 </ons-col>
               </ons-row>
             </ons-page>

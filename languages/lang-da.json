@@ -14,10 +14,12 @@
 	"company": "Virksomhed: ",
 	"menuItem1": "Se aktiviteter",
 	"menuItem2": "Opret aktivitet",
-	"menuItem3": "TestDK",
+	"menuItem3": "Se kontakter",
 	"menuItem4": "Om os",
-	"menuItem5": "Skift sprog",
+	"menuLang": "Skift sprog",
 	"menuItem6": "TestDK 4",
 	"menuItem7": "TestDK 5",
-	"language": "Vælg sprog her"
+	"language": "Vælg sprog her",
+	"aLang": "Du har valgt 'Dansk'",
+	"ddl": "Vælg kontakt"
 }

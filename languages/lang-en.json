@@ -14,10 +14,12 @@
 	"company": "Company: ",
 	"menuItem1": "View activities",
 	"menuItem2": "Create activity",
-	"menuItem3": "Test",
+	"menuItem3": "View contacts",
 	"menuItem4": "About us",
-	"menuItem5": "Change language",
+	"menuLang": "Change language",
 	"menuItem6": "Test 4",
 	"menuItem7": "Test 5",
-	"language": "Choose language here"
+	"language": "Choose language here",
+	"aLang": "You have chosen 'English'",
+	"ddl": "Choose contact"
 }
