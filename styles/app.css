@@ -104,15 +104,17 @@ hr
     margin-bottom: 30px;
 }
 
-.activity-col{
+.activity-col
+{
+    border-width: 2px;
     border-bottom-style: solid;
-border-width: 2px;
-border-bottom-color: #ddd;
+    border-bottom-color: #ddd;
 }
 
 .activity-row
 {
-    margin-top: 2px !important;
+    min-height: 80px;
+    margin: 8px 4px 0 4px !important;
     padding: 8px !important;
 
     border-width: 2px;

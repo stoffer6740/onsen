@@ -86,19 +86,24 @@ function getActivities () {
 	.done(function(data) {
 		$.each(data.activities, function(index, val) {
 			setTimeout(function() {
-				$('#result').append("<ons-row class='activity-row ons-row-inner'>" + 
-							"<ons-col class='col ons-col-inner'>" +
-								"<span class='label label-today'>" + 
-									"<i class'fa fa-phone'></i>" + 
-								"</span>" + 
-							"</ons-col>" + 
-							"<ons-col class='col ons-col-inner'>" + 
-								val.text + 
-							"</ons-col>" + 
-							"<ons-col class='col ons-col-inner'>" + 
-								val.company + 
-							"</ons-col>" + 
-						"</ons-row>");
+            $('#result').append("<ons-row class='activity-row row ons-row-inner'>" + 
+                  "<ons-col width='15%' class='col ons-col-inner type' style='-webkit-box-flex: 0; flex: 0 0 15%; max-width: 15%; padding:5px;'>" +
+                    val.type +
+                  "</ons-col>" + 
+                  "<ons-col width='30%' class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%; padding:5px;'>" + 
+                    val.date + "</br>" + val.time + 
+                  "</ons-col>" + 
+                  "<ons-col width='55%' class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 55%; max-width: 55%; padding:5px;'>" + 
+                    val.company + "</br>" + val.text + 
+                  "</ons-col>" + 
+                "</ons-row>");
+
+				$(".type:contains('1')").html("<span class='label label-today'><i class='fa fa-phone'></i></span>");
+				$(".type:contains('2')").html("<span class='label label-today'><i class='fa fa-envelope'></i></span>");
+				$(".type:contains('3')").html("<span class='label label-today'><i class='fa fa-reply'></i></span>");
+				$(".type:contains('4')").html("<span class='label label-today'><i class='fa fa-users'></i></span>");
+				$(".type:contains('5')").html("<span class='label label-today'><i class='fa fa-paperclip'></i></span>");
+				$(".type:contains('6')").html("<span class='label label-today'><i class='fa fa-pencil-square-o'></i></span>");
 				/*$('#result').append("<section style='padding: 8px 8px 8px'><ons-row align='left' class='row ons-row-inner'><ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;''><b>" + val.text + "</b></ons-col></ons-row>" +
 									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='type'>Type:</b></ons-col><ons-col class='col ons-col-inner'>" + val.type + "</ons-col></ons-row>" +
 									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='date'>Dato:</b></ons-col><ons-col class='col ons-col-inner'>" + val.date + "</ons-col></ons-row>" +
