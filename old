@@ -1,0 +1,54 @@
+                <ons-list-item 
+                  modifier="chevron"
+                  onclick="chlangEN();"
+                  ng-click="toggleMenu()">
+
+                  <img class="localize" src="images/icons/flags/GB.png" style="float:left;" />
+                </ons-list-item>
+
+                <ons-list-item 
+                  modifier="chevron"
+                  onclick="chlangDK();"
+                  ng-click="toggleMenu()">
+
+                  <img class="localize" src="images/icons/flags/DK.png" style="float:left;" />
+                </ons-list-item>
+
+
+
+                <ons-list>
+                <ons-list-item 
+                  id="activities"
+                  modifier="chevron"
+                  ng-click="ons.slidingMenu.setMainPage('activity.html', {closeMenu: true})">
+
+                  <i class="fa fa-home fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem1">Fail</p>
+                </ons-list-item>
+
+                <ons-list-item 
+                  modifier="chevron"
+                  ng-click="ons.slidingMenu.setMainPage('about.html', {closeMenu: true})">
+
+                  <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem2">Fail</p>
+                </ons-list-item>
+
+                <ons-list-item 
+                  modifier="chevron"
+                  ng-click="ons.slidingMenu.setMainPage('about.html', {closeMenu: true})">
+
+                  <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem3">Fail</p>
+                </ons-list-item>
+
+                <ons-list-item 
+                  modifier="chevron"
+                  ng-click="ons.slidingMenu.setMainPage('about.html', {closeMenu: true})">
+
+                  <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem4">Fail</p>
+                </ons-list-item>
+
+                <ons-tabbar>
+                  <img class="localize" src="images/icons/flags/GB.png" style="float:left;" onclick="chlangEN();" />
+                  <img class="localize" src="images/icons/flags/DK.png" style="float:left;" onclick="chlangDK();" />
+                </ons-tabbar>
+
+              </ons-list>

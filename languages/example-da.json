@@ -1,5 +1,5 @@
 {
-	"logo": "<img src='images/icons/icon_29749.png' title='Unicorn' height='39px' />uniCRM<a onclick='chlangEN();'><img class='localize' src='images/icons/flags/gb.png' /></a><a onclick='chlangDK();'><img class='localize' src='images/icons/flags/dk.png' /></a>",
+	"logo": "<img src='images/icons/icon_29749.png' title='Unicorn' height='39px' />uniCRM",
 	"login": "<button class='slide-left button-- effeckt-button button no-select button--large'><span class='label ons-button-inner' ng-transclude='><span class='ng-scope'>Log ind</span></span><span class='spinner button__spinner button--large__spinner'></span></button>",
 	"rEmail": "Husk Email addresse",
 	"overview": "Oversigt",
@@ -11,5 +11,12 @@
 	"type": "Type: ",
 	"date": "Dato: ",
 	"time": "Tidspunkt: ",
-	"company": "Virksomhed: "
+	"company": "Virksomhed: ",
+	"menuItem1": "Se aktiviteter",
+	"menuItem2": "Om os",
+	"menuItem3": "TestDK",
+	"menuItem4": "TestDK 2",
+	"menuItem5": "TestDK 3",
+	"menuItem6": "TestDK 4",
+	"menuItem7": "TestDK 5"
 }

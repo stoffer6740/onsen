@@ -29,6 +29,7 @@
     <icon src="res/icon/android/mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
     <icon src="res/icon/android/hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
     <icon src="res/icon/android/xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
+    <icon src="res/icon/android/xxxhdpi.png"  gap:platform="android"    gap:qualifier="xxxhdpi" />
 
     <!-- Permissions and preferences -->
     <preference name="permissions" value="none"/>
@@ -40,5 +41,5 @@
     <access origin="http://dev.unicrm.dk/*" subdomains="true" />
 
     <!-- Enable debugging in Gapdebug -->
-
+    <application android:debuggable="true" />
 </widget>

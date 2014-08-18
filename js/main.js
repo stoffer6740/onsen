@@ -1,8 +1,8 @@
 
 /* Logs you in to the server */
 function login() {
-	var e = $('#email').val();
-	var p = $('#password').val();
+	var e = $('#email').val().trim();
+	var p = $('#password').val().trim();
 	$.ajax({
 		url: 'http://dev.unicrm.dk/index.php?option=com_webitall_crm&task=api.login&tmpl=api',
 		type: 'GET',
@@ -158,6 +158,7 @@ function chlangEN () {
 	$(function(){
         var opts = { language: lang, pathPrefix: "languages"};
 		$("[data-localize]").localize("example", opts)
+
 	})
 	saveLang(lang);
 }

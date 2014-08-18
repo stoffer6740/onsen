@@ -22,10 +22,7 @@
   
 </head>
 
-<body> 
-
-
-
+<body>
 <ons-page>
 
 <ons-row>
@@ -33,9 +30,6 @@
     <div class="center">
     <h1 data-localize="logo">
       <img src="images/icons/icon_29749.png" title="Unicorn" height="39px" />
-      Sprog
-      <a onclick="chlangEN();"><img class="localize" src="images/icons/flags/gb.png" /></a>
-      <a onclick="chlangDK();"><img class="localize" src="images/icons/flags/dk.png" /></a>
     </h1>
       
     </div>
@@ -65,6 +59,10 @@
       </form>
     </ons-col>
   </ons-row>
+<ons-tabbar align="center">
+    <img class="localize" src="images/icons/flags/GB.png" onclick="chlangEN();" />
+    <img class="localize" src="images/icons/flags/DK.png" onclick="chlangDK();" />
+</ons-tabbar>
 </ons-page>
 
 <script type="text/javascript">

@@ -1,70 +1,98 @@
-.left {
-	text-align: left;
-	color:white;
+.left
+{
+    text-align: left;
+    color: white;
 }
 
-.margin {
-	margin-top: 10px !important;
+.margin
+{
+    margin-top: 10px !important;
 }
 
-.navigation-bar, h1 {
-	color: white;
-	background-color: #212a31;
+.navigation-bar,
+h1
+{
+    color: white;
+    background-color: #212a31;
 }
 
-.button--large {
-	background-color: #3e90ca;
+.button--large
+{
+    background-color: #3e90ca;
 }
 
-body { padding-bottom:70px; font-family: "Open Sans";}
+body
+{
+    font-family: 'Open Sans';
+    padding-bottom: 70px;
+}
+
+.menuItem {
+	display: inline;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	z-index: -200;
+}
 
 /* Styles */
-.localize {
-	height: 35px;
-	float:right;
-	padding:5px;
+.localize
+{
+    float: right;
+    height: 50px;
+    padding: 5px;
 }
 
-.logo{
-	color: white;
-	background-color: #212a31;
-	margin:0 auto 0 auto !important;
+.logo
+{
+    margin: 0 auto 0 auto !important;
+
+    color: white;
+    background-color: #212a31;
 }
 
-.activities_small {
-	margin-bottom:30px;
+.activities_small
+{
+    margin-bottom: 30px;
 }
 
-.footer {
-	background: #212a31 !important;
+.footer
+{
+    background: #212a31 !important;
 }
 
-.error {
-	color: red;
-	text-shadow: none;
+.error
+{
+    color: red;
+    text-shadow: none;
 }
 
-.credits {
-	font-size: 0.5em;
+.credits
+{
+    font-size: .5em;
 }
 
 /* Forms */
-.input_form {
-	-webkit-border-radius: 5px 5px 5px 5px !important;
-	border-radius: 5px 5px 5px 5px !important;
-	padding:15px !important;
+.input_form
+{
+    padding: 15px !important;
+    -webkit-border-radius: 5px 5px 5px 5px !important;
+            border-radius: 5px 5px 5px 5px !important;
 }
 
-input {
-	color: black !important;
+input
+{
+    color: black !important;
 }
 
 /* Buttons */
-.input_btn {
-	float: right;
-	color:white; 
-	background-color: #3e90ca; 
-	border-style: none; 
-	-webkit-border-radius: 5px 5px 5px 5px !important;
-	border-radius: 5px 5px 5px 5px !important;
+.input_btn
+{
+    float: right;
+    color: white;
+    border-style: none;
+    -webkit-border-radius: 5px 5px 5px 5px !important;
+            border-radius: 5px 5px 5px 5px !important;
+    background-color: #3e90ca;
 }
