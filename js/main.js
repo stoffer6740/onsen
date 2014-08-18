@@ -148,7 +148,7 @@ function chlangDK () {
 	var lang = "da";
 	$(function(){
         var opts = { language: lang, pathPrefix: "languages"};
-		$("[data-localize]").localize("example", opts)
+		$("[data-localize]").localize("lang", opts)
 	})
 	saveLang(lang);
 }
@@ -157,7 +157,7 @@ function chlangEN () {
 	var lang = "en";
 	$(function(){
         var opts = { language: lang, pathPrefix: "languages"};
-		$("[data-localize]").localize("example", opts)
+		$("[data-localize]").localize("lang", opts)
 
 	})
 	saveLang(lang);
@@ -172,7 +172,7 @@ function getLang () {
 	var lang = window.localStorage.getItem("lang");
 	$(function(){
         var opts = { language: lang, pathPrefix: "languages"};
-		$("[data-localize]").localize("example", opts)
+		$("[data-localize]").localize("lang", opts)
 	})
 	console.log("Language is now: " + window.localStorage.getItem("lang"));
 }
