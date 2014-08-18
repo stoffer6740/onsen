@@ -49,35 +49,35 @@
                   ng-click="ons.slidingMenu.setMainPage('activity.html', {closeMenu: true})"
                   onclick="getActivities();">
 
-                  <i class="fa fa-home fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem1">Se aktiviteter</p>
+                  <i class="fa fa-th-list fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem1">View activities</p>
+                </ons-list-item>
+
+                <ons-list-item 
+                  modifier="chevron"
+                  ng-click="ons.slidingMenu.setMainPage('create.html', {closeMenu: true})">
+
+                  <i class="fa fa-plus-circle fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem2">Create activities</p>
+                </ons-list-item>
+
+                <ons-list-item 
+                  modifier="chevron"
+                  ng-click="ons.slidingMenu.setMainPage('test.html', {closeMenu: true})">
+
+                  <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem3">Test</p>
                 </ons-list-item>
 
                 <ons-list-item 
                   modifier="chevron"
                   ng-click="ons.slidingMenu.setMainPage('about.html', {closeMenu: true})">
 
-                  <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem2">Om os</p>
+                  <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem4">About us</p>
                 </ons-list-item>
 
                 <ons-list-item 
                   modifier="chevron"
-                  ng-click="ons.slidingMenu.setMainPage('about.html', {closeMenu: true})">
+                  ng-click="ons.slidingMenu.setMainPage('language.html', {closeMenu: true})">
 
-                  <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem3">Fail</p>
-                </ons-list-item>
-
-                <ons-list-item 
-                  modifier="chevron"
-                  ng-click="ons.slidingMenu.setMainPage('about.html', {closeMenu: true})">
-
-                  <i class="fa fa-info fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem4">Fail</p>
-                </ons-list-item>
-
-                <ons-list-item 
-                  modifier="chevron">
-
-                  <img class="localize" src="images/icons/flags/gb.png" style="float:left;" onclick="chlangEN();" />
-                  <img class="localize" src="images/icons/flags/dk.png" style="float:left;" onclick="chlangDK();" />
+                  <i class="fa fa-language fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem5">Language</p>
                 </ons-list-item>
               </ons-list>
 
@@ -85,6 +85,7 @@
 
           </script>
 
+          <!-- Views activities for the person logged in. -->
           <script type="text/ons-template" id="activity.html">
             <ons-page>
               <ons-toolbar>
@@ -92,7 +93,7 @@
                 </div>
               </ons-toolbar>
 
-              <ons-row style="margin-top: 100px;">
+              <ons-row style="margin-top: 50px;">
                 <ons-col align="center">
                   <div>
                       <ons-row id="result"></ons-row>
@@ -102,21 +103,70 @@
             </ons-page>
           </script>
 
-            <script type="text/ons-template" id="about.html">
+          <!-- Shows the create activity page -->
+          <script type="text/ons-template" id="create.html">
             <ons-page>
               <ons-toolbar>
                 <div class="center"><h1><img src="images/icons/icon_29749.png" title="Unicorn" height="39px" />uniCRM</h1>
                 </div>
               </ons-toolbar>
 
-              <ons-row style="margin-top: 100px;">
+              <ons-row style="margin-top: 50px;">
                 <ons-col align="center">
-                  <p data-localize="about">This is a test. About.html</p>
+
                 </ons-col>
               </ons-row>
             </ons-page>
           </script>
 
+          <!-- Test page -->
+          <script type="text/ons-template" id="test.html">
+            <ons-page>
+              <ons-toolbar>
+                <div class="center"><h1><img src="images/icons/icon_29749.png" title="Unicorn" height="39px" />uniCRM</h1>
+                </div>
+              </ons-toolbar>
+
+              <ons-row style="margin-top: 50px;">
+                <ons-col align="center">
+                  <p data-localize="about">This is a test page.</p>
+                </ons-col>
+              </ons-row>
+            </ons-page>
+          </script>
+
+          <!-- Shows the about page -->
+          <script type="text/ons-template" id="about.html">
+          <ons-page>
+            <ons-toolbar>
+              <div class="center"><h1><img src="images/icons/icon_29749.png" title="Unicorn" height="39px" />uniCRM</h1>
+              </div>
+            </ons-toolbar>
+
+            <ons-row style="margin-top: 50px;">
+              <ons-col align="center">
+                <p data-localize="about">This is a test. About.html</p>
+              </ons-col>
+            </ons-row>
+          </ons-page>
+          </script>
+          <!-- Shows the change language page -->
+          <script type="text/ons-template" id="language.html">
+            <ons-page>
+              <ons-toolbar>
+                <div class="center"><h1><img src="images/icons/icon_29749.png" title="Unicorn" height="39px" />uniCRM</h1>
+                </div>
+              </ons-toolbar>
+
+              <ons-row style="margin-top: 50px;">
+                <ons-col align="center">
+                  <p data-localize="language">Choose language here</p>
+                  <img src="images/icons/flags/gb.png" onclick="chlangEN();" />
+                  <img src="images/icons/flags/dk.png" onclick="chlangDK();" />
+                </ons-col>
+              </ons-row>
+            </ons-page>
+          </script>
 
         <script type="text/javascript">
         $( document ).ready(function() {

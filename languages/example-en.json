@@ -13,10 +13,11 @@
 	"time": "Time: ",
 	"company": "Company: ",
 	"menuItem1": "View activities",
-	"menuItem2": "About us",
+	"menuItem2": "Create activity",
 	"menuItem3": "Test",
-	"menuItem4": "Test 2",
-	"menuItem5": "Test 3",
+	"menuItem4": "About us",
+	"menuItem5": "Change language",
 	"menuItem6": "Test 4",
-	"menuItem7": "Test 5"
+	"menuItem7": "Test 5",
+	"language": "Choose language here"
 }

@@ -50,7 +50,7 @@
           </section>
           <div class="error"></div>
           <section style="padding: 0 8px 8px">
-            <ons-button modifier="large" value="LOG IND" onclick="login();" data-localize="login">LOG IND</ons-button>
+            <ons-button modifier="large" value="LOG IND" onclick="login();" data-localize="login">Login</ons-button>
           </section>
           <section style="padding: 8px; float:right;">
             <text data-localize="rEmail">Remember Email</text> <input type="checkbox" id="rEmail">
@@ -58,6 +58,16 @@
         </div>
       </form>
     </ons-col>
+  </ons-row>
+  <ons-row align="bottom">
+    <ons-col align="center">
+        <section style="padding:8px;">
+        <hr>
+          <p data-localize="language">Choose language here</p>
+        <img src="images/icons/flags/gb.png" onclick="chlangEN();" />
+        <img src="images/icons/flags/dk.png" onclick="chlangDK();" />
+      </section>
+      </ons-col>
   </ons-row>
 </ons-page>
 

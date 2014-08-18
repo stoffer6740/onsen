@@ -13,10 +13,11 @@
 	"time": "Tidspunkt: ",
 	"company": "Virksomhed: ",
 	"menuItem1": "Se aktiviteter",
-	"menuItem2": "Om os",
+	"menuItem2": "Opret aktivitet",
 	"menuItem3": "TestDK",
-	"menuItem4": "TestDK 2",
-	"menuItem5": "TestDK 3",
+	"menuItem4": "Om os",
+	"menuItem5": "Skift sprog",
 	"menuItem6": "TestDK 4",
-	"menuItem7": "TestDK 5"
+	"menuItem7": "TestDK 5",
+	"language": "Vælg sprog her"
 }
