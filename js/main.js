@@ -23,6 +23,7 @@ function login() {
 		console.log("done");
 	});
 }
+
 function checkLogin(data) {
 	console.log("checkLogin invoked");
 	console.log("status" + data.status);
@@ -85,11 +86,24 @@ function getActivities () {
 	.done(function(data) {
 		$.each(data.activities, function(index, val) {
 			setTimeout(function() {
-				$('#result').append("<section style='padding: 8px 8px 8px'><ons-row align='left' class='row ons-row-inner'><ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;''><b>" + val.text + "</b></ons-col></ons-row>" +
+				$('#result').append("<ons-row class='activity-row ons-row-inner'>" + 
+							"<ons-col class='col ons-col-inner'>" +
+								"<span class='label label-today'>" + 
+									"<i class'fa fa-phone'></i>" + 
+								"</span>" + 
+							"</ons-col>" + 
+							"<ons-col class='col ons-col-inner'>" + 
+								val.text + 
+							"</ons-col>" + 
+							"<ons-col class='col ons-col-inner'>" + 
+								val.company + 
+							"</ons-col>" + 
+						"</ons-row>");
+				/*$('#result').append("<section style='padding: 8px 8px 8px'><ons-row align='left' class='row ons-row-inner'><ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;''><b>" + val.text + "</b></ons-col></ons-row>" +
 									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='type'>Type:</b></ons-col><ons-col class='col ons-col-inner'>" + val.type + "</ons-col></ons-row>" +
 									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='date'>Dato:</b></ons-col><ons-col class='col ons-col-inner'>" + val.date + "</ons-col></ons-row>" +
 									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='time'>Tidspunkt:</b></ons-col><ons-col class='col ons-col-inner'>" + val.time + "</ons-col></ons-row>" +
-									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='company'>Virksomhed:</b></ons-col><ons-col class='col ons-col-inner'>" + val.company + "</ons-col></ons-row></ons-row></section>");
+									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='company'>Virksomhed:</b></ons-col><ons-col class='col ons-col-inner'>" + val.company + "</ons-col></ons-row></ons-row></section>");*/
 			}, 0);
 		});
 		
@@ -104,6 +118,7 @@ function getActivities () {
 		console.log("done");
 	});
 }
+
 
 function getContacts () {
 	console.log("getContacts");
@@ -242,4 +257,8 @@ function getLang () {
 function setUp () {
 	var email = window.localStorage.getItem("email");
 	$('#email').val(email);
+}
+
+function checklogin () {
+	//TODO make a boolean checking if you have an active session on the server.
 }
