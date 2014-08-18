@@ -41,5 +41,4 @@
     <access origin="http://dev.unicrm.dk/*" subdomains="true" />
 
     <!-- Enable debugging in Gapdebug -->
-    <application android:debuggable="true" />
 </widget>
