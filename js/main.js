@@ -23,7 +23,6 @@ function login() {
 		console.log("done");
 	});
 }
-
 function checkLogin(data) {
 	console.log("checkLogin invoked");
 	console.log("status" + data.status);
@@ -38,16 +37,16 @@ function checkLogin(data) {
         			saveEmail();
         		}
         		console.log("case 1 success");
-        		window.location.href = "activities.html";
+        		window.location.href = "content.html";
                 /*$rootScope.ons.screen.presentPage('overview.html');*/
                 break;
             case (data.status == -1):
             	console.log("case -1 fail");
-                $('.error').html("Forkert kodeord");
+                $('.error').html("Wrong password");
                 break;
             case (data.status == -2):
             	console.log("case -2 fail");
-                $('.error').html("Forkert brugernavn / bruger eksisterer ikke");
+                $('.error').html("Wrong username / User does not exist");
                 break;
         }
 }
@@ -55,7 +54,6 @@ function checkLogin(data) {
 /* Saves the token to localstorage in the browser (NEEDS ENCRYPTION?!) */
 function saveToken (data) {
 	console.log("savetoken");
-	window.localStorage.setItem("userId", data.userId);
 	window.localStorage.setItem("token", data.userId + ":" + data.token);
 }
 
@@ -108,28 +106,51 @@ function getActivities () {
 }
 
 function getContacts () {
-	console.log("getActivities");
+	console.log("getContacts");
 	var token = window.localStorage.getItem("token");
 	$.ajax({
 		url: 'http://dev.unicrm.dk/index.php?option=com_webitall_crm&task=api.getContacts&tmpl=api',
 		type: 'GET',
-		data: "token=" + token,
+		data: "full=0&token=" + token,
 		dataType: 'json',
 		async: false,
 
 	})
 	.done(function(data) {
-		$.each(data.activities, function(index, val) {
+		$.each(data.contacts, function(index, val) {
 			setTimeout(function() {
-				$('#result').append("<section style='padding: 8px 8px 8px'><ons-row align='left' class='row ons-row-inner'><ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;''><b>" + val.text + "</b></ons-col></ons-row>" +
-									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='type'>Type:</b></ons-col><ons-col class='col ons-col-inner'>" + val.type + "</ons-col></ons-row>" +
-									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='date'>Dato:</b></ons-col><ons-col class='col ons-col-inner'>" + val.date + "</ons-col></ons-row>" +
-									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='time'>Tidspunkt:</b></ons-col><ons-col class='col ons-col-inner'>" + val.time + "</ons-col></ons-row>" +
-									"<ons-row class='row ons-row-inner'><ons-col class='col ons-col-inner' style='-webkit-box-flex: 0; flex: 0 0 30%; max-width: 30%;' width='30%'><b data-localize='company'>Virksomhed:</b></ons-col><ons-col class='col ons-col-inner'>" + val.company + "</ons-col></ons-row></ons-row></section>");
+				var contacts = $('#contacts');
+				contacts.append($("<option />").val(val.id).text(val.name));
 			}, 0);
 		});
 		
-		console.log(data.status + " " + data.activities);
+		console.log(data.status + " " + data.contacts);
+	})
+	.fail(function() {
+		console.log("error");
+		$('.error').css("color", "red");
+		$('.error').html("An error occurred");
+	})
+	.always(function() {
+		console.log("done");
+	});
+}
+/* Get full contact info */
+function getContactsFull () {
+	console.log("getContacts");
+	var token = window.localStorage.getItem("token");
+	$.ajax({
+		url: 'http://dev.unicrm.dk/index.php?option=com_webitall_crm&task=api.getContacts&tmpl=api',
+		type: 'GET',
+		data: "full=1&token=" + token,
+		dataType: 'json',
+		async: false,
+
+	})
+	.done(function(data) {
+		console.log("Selected id is");
+		
+		console.log(data.status + " " + data.contacts);
 	})
 	.fail(function() {
 		console.log("error");
@@ -141,6 +162,12 @@ function getContacts () {
 	});
 }
 
+/* Get contacts by ID */
+function getContactsById () {
+	console.log("getContacts");
+	var id = $('#contacts').val();
+	console.log("Your selected id is: " + id);
+}
 
 /* Gets the details of the activity you've clicked on */
 function getActivityDetails () {

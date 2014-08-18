@@ -60,7 +60,8 @@
 
                 <ons-list-item 
                   modifier="chevron"
-                  ng-click="ons.slidingMenu.setMainPage('contacts.html', {closeMenu: true})">
+                  ng-click="ons.slidingMenu.setMainPage('contacts.html', {closeMenu: true})"
+                  onclick="getContacts();">
 
                   <i class="fa fa-users fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem3">Show contacts</p>
                 </ons-list-item>
@@ -135,8 +136,8 @@
 
               <ons-row style="margin-top: 50px;">
                 <ons-col align="center">
-
-                  <select id="contacts" name="contacts">
+                  <label>Choose contact</label>
+                  <select id="contacts" name="contacts" onchange="getContactsById();">
                     <option value="000" data-localize="ddl"></option>
                   </select>
                   <ons-row id="contacts"></ons-row>
@@ -156,7 +157,9 @@
 
               <ons-row style="margin-top: 50px;">
                 <ons-col align="center">
-                  <p data-localize="about">This is a test page.</p>
+                  <span class="label label-danger">  
+                    <i class="fa fa-phone"></i> 
+                  </span>
                 </ons-col>
               </ons-row>
             </ons-page>
@@ -177,6 +180,7 @@
             </ons-row>
           </ons-page>
           </script>
+
           <!-- Shows the change language page -->
           <script type="text/ons-template" id="language.html">
             <ons-page>
