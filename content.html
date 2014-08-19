@@ -53,15 +53,15 @@
 
                 <ons-list-item 
                   modifier="chevron"
-                  ng-click="ons.slidingMenu.setMainPage('create.html', {closeMenu: true})">
+                  ng-click="ons.slidingMenu.setMainPage('create.html', {closeMenu: true})"
+                  onclick="getContacts();">
 
                   <i class="fa fa-plus-circle fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem2">Create activities</p>
                 </ons-list-item>
 
                 <ons-list-item 
                   modifier="chevron"
-                  ng-click="ons.slidingMenu.setMainPage('contacts.html', {closeMenu: true})"
-                  onclick="getContacts();">
+                  ng-click="ons.slidingMenu.setMainPage('contacts.html', {closeMenu: true})">
 
                   <i class="fa fa-users fa-lg" style="color: #666"></i> &nbsp; <p class="menuItem" data-localize="menuItem3">Show contacts</p>
                 </ons-list-item>
@@ -100,7 +100,7 @@
                 </div>
               </ons-toolbar>
 
-              <ons-row style="margin-top: 50px;">
+              <ons-row class="margin padding">
                 <ons-col>
                   <div>
                       <ons-row id="result" class="row ons-row-inner"></ons-row>
@@ -118,14 +118,80 @@
                 <div class="center"><h1><img src="images/icons/icon_29749.png" title="Unicorn" height="39px" />uniCRM</h1>
                 </div>
               </ons-toolbar>
+                <ons-row class="margin padding">
 
-              <ons-row style="margin-top: 50px;">
-                <ons-col align="center">
+                  <ons-row class="create-row">
+                    <label class="input-label" data-localize="createType">Type</label>
+                    <select id="type" class="input-ddl" name="type" onchange="getType();">
+                      <option value="000">- Choose type -</option>
+                    </select>
+                  </ons-row>
 
-                </ons-col>
-              </ons-row>
+                  <ons-row class="create-row">
+                    <label class="input-label" data-localize="createAmount">Expected amount</label>
+                    <input type="text" id="amount" placeholder="kr." class="input" />
+                  </ons-row>
+
+                  <ons-row class="create-row">
+                    <label class="input-label" data-localize="createProbability">Probability</label>
+                    <select id="type" class="input-ddl" name="type" onchange="getType();">
+                      <option value="0%">0%</option>
+                      <option value="25%">25%</option>
+                      <option value="50%">50%</option>
+                      <option value="75%">75%</option>
+                      <option value="100%">100%</option>
+                    </select>
+                  </ons-row>
+
+                  <ons-row class="create-row">
+                    <label class="input-label" data-localize="createDate">Date</label>
+                      <input type="date" class="input" name="date">
+                  </ons-row>
+
+                  <ons-row class="create-row">
+                    <label class="input-label" data-localize="createTime">Time</label>
+                    <input type="text" id="time" placeholder="00:00" class="input" />
+                  </ons-row>
+
+                  <ons-row class="create-row">
+                    <label class="input-label" data-localize="createEstimate">Estimated time</label>
+                    <input type="text" id="estimate" placeholder="kr." class="input" />
+                  </ons-row>
+
+                  <ons-row class="create-row">
+                    <label class="input-label" data-localize="createWorker">Co-worker</label>
+                    <select id="coworker" class="input-ddl" name="coworker" onchange="getType();">
+                      <option value="000">- Choose co-worker -</option>
+                    </select>
+                  </ons-row>
+
+                  <ons-row class="create-row">
+                    <label class="input-label" data-localize="createCompany">Company</label>
+                    <select id="contacts" class="input-ddl" name="contacts" onchange="getPersons();">
+                      <option value="000">- Choose company -</option>
+                    </select>
+                  </ons-row>
+                  
+                  <ons-row class="create-row">
+                    <label class="input-label" data-localize="createPerson">Person</label>
+                    <select id="persons" class="input-ddl" name="persons">
+                      <option value="000">- Choose person -</option>
+                    </select>
+                  </ons-row>
+
+                  <ons-row class="create-row">
+                    <label class="input-label" data-localize="createActivityName">Activity name</label>
+                    <input type="text" id="activity" class="input" />
+                  </ons-row>
+
+                  <ons-row class="create-row">
+                    <label class="input-label" data-localize="createNote">Notes</label>
+                    <input type="textarea" style="height:100px;" id="activitynote" class="input" rows="5" cols="100" />
+                  </ons-row>
+                    
+                </ons-row>
             </ons-page>
-          </script>
+         </script>
 
           <!-- Shows the contacts page -->
           <script type="text/ons-template" id="contacts.html">
@@ -135,15 +201,8 @@
                 </div>
               </ons-toolbar>
 
-              <ons-row style="margin-top: 50px;">
-                <ons-col align="center">
-                  <label>Choose contact</label>
-                  <select id="contacts" name="contacts" onchange="getContactsById();">
-                    <option value="000" data-localize="ddl"></option>
-                  </select>
-                  <ons-row id="contacts"></ons-row>
+              <ons-row class="margin padding">
 
-                </ons-col>
               </ons-row>
             </ons-page>
           </script>
@@ -156,7 +215,7 @@
                 </div>
               </ons-toolbar>
 
-              <ons-row style="margin-top: 50px; padding:8px;">
+              <ons-row class="margin padding">
                 <ons-col class="activity-col">
 
                   <ons-row class="activity-row">
@@ -459,7 +518,7 @@
               </div>
             </ons-toolbar>
 
-            <ons-row style="margin-top: 50px;">
+            <ons-row class="margin padding">
               <ons-col align="center">
                 <p data-localize="about">This is a test. About.html</p>
               </ons-col>
@@ -475,7 +534,7 @@
                 </div>
               </ons-toolbar>
 
-              <ons-row style="margin-top: 50px;">
+              <ons-row class="margin padding">
                 <ons-col align="center">
                   <p data-localize="language">Choose language here</p>
                   <a onclick="chlangEN();"><img src="images/icons/flags/gb.png" /></a>

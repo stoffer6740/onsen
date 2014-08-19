@@ -1,10 +1,11 @@
-
+/* "Constants" */
+var URL = "http://dev.unicrm.dk/";
 /* Logs you in to the server */
 function login() {
 	var e = $('#email').val().trim();
 	var p = $('#password').val().trim();
 	$.ajax({
-		url: 'http://dev.unicrm.dk/index.php?option=com_webitall_crm&task=api.login&tmpl=api',
+		url: URL + 'index.php?option=com_webitall_crm&task=api.login&tmpl=api',
 		type: 'GET',
 		data: "email=" + e + "&pass=" + p,
 		dataType: 'json',
@@ -43,11 +44,11 @@ function checkLogin(data) {
                 break;
             case (data.status == -1):
             	console.log("case -1 fail");
-                $('.error').html("Wrong password");
+                $('.error').html("<p data-localize='wrongPW'>Wrong password</p>");
                 break;
             case (data.status == -2):
             	console.log("case -2 fail");
-                $('.error').html("Wrong username / User does not exist");
+                $('.error').html("<p data-localize='wrongUS'>Wrong username / User does not exist</p>");
                 break;
         }
 }
@@ -76,7 +77,7 @@ function getActivities () {
 	console.log("getActivities");
 	var token = window.localStorage.getItem("token");
 	$.ajax({
-		url: 'http://dev.unicrm.dk/index.php?option=com_webitall_crm&task=api.getActivities&tmpl=api',
+		url: URL + 'index.php?option=com_webitall_crm&task=api.getActivities&tmpl=api',
 		type: 'GET',
 		data: "token=" + token,
 		dataType: 'json',
@@ -129,7 +130,7 @@ function getContacts () {
 	console.log("getContacts");
 	var token = window.localStorage.getItem("token");
 	$.ajax({
-		url: 'http://dev.unicrm.dk/index.php?option=com_webitall_crm&task=api.getContacts&tmpl=api',
+		url: URL + 'index.php?option=com_webitall_crm&task=api.getContacts&tmpl=api',
 		type: 'GET',
 		data: "full=0&token=" + token,
 		dataType: 'json',
@@ -155,12 +156,13 @@ function getContacts () {
 		console.log("done");
 	});
 }
+
 /* Get full contact info */
 function getContactsFull () {
 	console.log("getContacts");
 	var token = window.localStorage.getItem("token");
 	$.ajax({
-		url: 'http://dev.unicrm.dk/index.php?option=com_webitall_crm&task=api.getContacts&tmpl=api',
+		url: URL + 'index.php?option=com_webitall_crm&task=api.getContacts&tmpl=api',
 		type: 'GET',
 		data: "full=1&token=" + token,
 		dataType: 'json',
@@ -182,6 +184,42 @@ function getContactsFull () {
 	});
 }
 
+/* Gets the persons from the database */
+function getPersons() {
+	console.log("getPersons");
+	var id = $('#contacts').val();
+	var token = window.localStorage.getItem("token");
+	$.ajax({
+		url: URL + 'index.php?option=com_webitall_crm&task=api.getPersons&tmpl=api',
+		type: 'GET',
+		data: "contact=" + id + "&full=0&token=" + token,
+		dataType: 'json',
+		async: false,
+
+	})
+	.done(function(data) {
+		$.each(data.persons, function(index, val) {
+			setTimeout(function() {
+				var persons = $('#persons');
+				persons.append($("<option />").val(val.id).text(val.name));
+			}, 0);
+		});
+	})
+	.fail(function() {
+		console.log("error");
+		$('.error').css("color", "red");
+		$('.error').html("An error occurred");
+	})
+	.always(function() {
+		console.log("done");
+	});
+}
+
+/* Gets the persons with their full information from the database */
+function getPersonsFull() {
+	//TODO
+}
+
 /* Get contacts by ID */
 function getContactsById () {
 	console.log("getContacts");
@@ -193,7 +231,7 @@ function getContactsById () {
 function getActivityDetails () {
 	var token = window.localStorage.getItem("token");
 	$.ajax({
-		url: 'http://dev.unicrm.dk/index.php?option=com_webitall_crm&task=api.getActivities&tmpl=api',
+		url: URL + 'index.php?option=com_webitall_crm&task=api.getActivities&tmpl=api',
 		type: 'GET',
 		data: "token=" + token,
 		dataType: 'json',
@@ -240,7 +278,6 @@ function chlangEN () {
 	$(function(){
         var opts = { language: lang, pathPrefix: "languages"};
 		$("[data-localize]").localize("lang", opts)
-
 	})
 	saveLang(lang);
 }
